@@ -1,0 +1,77 @@
+[
+    {
+        "id": 1,
+        "name": "Barnacle Boy",
+        "image": "/src/assets/barnacle boy.webp"
+    },
+    {
+        "id": 2,
+        "name": "Flying Dutchman",
+        "image": "/src/assets/flying dutchman.webp"
+    },
+    {
+        "id": 3,
+        "name": "Gary the Snail",
+        "image": "/src/assets/gary.webp"
+    },
+    {
+        "id": 4,
+        "name": "Mr. Krabs",
+        "image": "/src/assets/mr krabs.webp"
+    },
+    {
+        "id": 5,
+        "name": "Patrick Star",
+        "image": "/src/assets/patrick star.webp"
+    },
+    {
+        "id": 6,
+        "name": "Plankton",
+        "image": "/src/assets/plankton.webp"
+    },
+    {
+        "id": 7,
+        "name": "Sandy Cheeks",
+        "image": "/src/assets/sandy.webp"
+    },
+    {
+        "id": 8,
+        "name": "Squidward Tentacles",
+        "image": "/src/assets/squidward.webp"
+    },
+    {
+        "id": 9,
+        "name": "SpongeBob SquarePants",
+        "image": "/src/assets/spongebob.webp"
+    },
+    {
+        "id": 10,
+        "name": "Mermaid Man",
+        "image": "/src/assets/mermaid man.webp"
+    },
+    {
+        "id": 11,
+        "name": "Larry the Lobster",
+        "image": "/src/assets/larry.webp"
+    },
+    {
+        "id": 12,
+        "name": "Mrs. Puff",
+        "image": "/src/assets/mrs puff.webp"
+    },
+    {
+        "id": 13,
+        "name": "Pearl Krabs",
+        "image": "/src/assets/pearl.webp"
+    },
+    {
+        "id": 14,
+        "name": "King Neptune",
+        "image": "/src/assets/king neptune.webp"
+    },
+    {
+        "id": 15,
+        "name": "Karen Plankton",
+        "image": "/src/assets/karen.webp"
+    }
+]

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import cards from "./data/cards.json";
 
 export default function App() {
     const [score, setScore] = useState(0);
@@ -22,6 +23,15 @@ export default function App() {
         setScore(0);
         setIsGameOver(false);
         setClickedCards(new Set());
+    }
+
+    const getRandomCards = (cards, count) => {
+        const shuffledCards = [...cards];
+        for (let i = shuffledCards.length - 1; i >= 1; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+        }
+        return shuffledCards.slice(0, count);
     }
 
     useEffect(() => {
