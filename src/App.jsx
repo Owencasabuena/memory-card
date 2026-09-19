@@ -8,7 +8,7 @@ export default function App() {
     const [clickedCards, setClickedCards] = useState(new Set());
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [activeCards, setActiveCards] = useState([]);
-    
+
     const handleCardClick = (card) => {
         if (clickedCards.has(card.id)) {
             setIsGameOver(true);
@@ -18,21 +18,19 @@ export default function App() {
             );
 
             setScore((previousScore) => previousScore + 1);
+            setActiveCards(shuffleCards(activeCards));
         }
     }
 
     const handleTryAgain = () => {
+        setActiveCards(shuffleCards(activeCards));
         setScore(0);
         setIsGameOver(false);
         setClickedCards(new Set());
     }
 
     const getRandomCards = (cards, count) => {
-        const shuffledCards = [...cards];
-        for (let i = shuffledCards.length - 1; i >= 1; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
-        }
+        const shuffledCards = shuffleCards(cards);
         return shuffledCards.slice(0, count);
     }
 
@@ -42,7 +40,18 @@ export default function App() {
         }
     }, [isGameOver, score, highScore])
 
-    return (
+    const shuffleCards = (cards) => {
+        const shuffledCards = [...cards];
+        for (let i = cards.length - 1; i >= 1; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledCards[i], shuffledCards[j]] = [shuffledCards[j], shuffledCards[i]];
+        }
 
+        return shuffledCards;
+    }
+
+    return (
+        <>
+        </>
     )
 }
