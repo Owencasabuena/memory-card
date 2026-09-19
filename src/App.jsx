@@ -6,7 +6,9 @@ export default function App() {
     const [highScore, setHighScore] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
     const [clickedCards, setClickedCards] = useState(new Set());
-
+    const [selectedDifficulty, setSelectedDifficulty] = useState(null);
+    const [activeCards, setActiveCards] = useState([]);
+    
     const handleCardClick = (card) => {
         if (clickedCards.has(card.id)) {
             setIsGameOver(true);
