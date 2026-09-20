@@ -9,6 +9,11 @@ export default function App() {
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [activeCards, setActiveCards] = useState([]);
 
+    const DIFFICULTY_COUNTS = {
+        easy: 5,
+        normal: 10,
+        hard: 15
+    }
     const handleCardClick = (card) => {
         if (clickedCards.has(card.id)) {
             setIsGameOver(true);
@@ -20,6 +25,14 @@ export default function App() {
             setScore((previousScore) => previousScore + 1);
             setActiveCards(shuffleCards(activeCards));
         }
+    }
+
+    const handleStartGame = (difficulty) => {
+        setActiveCards(getRandomCards(cards, DIFFICULTY_COUNTS[difficulty]));
+        setSelectedDifficulty(difficulty);
+        setScore(0);
+        setIsGameOver(false);
+        setClickedCards(new Set());
     }
 
     const handleTryAgain = () => {
