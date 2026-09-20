@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import cards from "./data/cards.json";
+import Button from "./Button";
 
 export default function App() {
     const [score, setScore] = useState(0);
@@ -65,6 +66,9 @@ export default function App() {
 
     return (
         <>
+            <Button onClick={() => handleStartGame("easy")}>Easy</Button>
+            <Button onClick={() => handleStartGame("normal")}>Normal</Button>
+            <Button onClick={() => handleStartGame("hard")}>Hard</Button>
         </>
     )
 }
