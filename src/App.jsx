@@ -28,6 +28,7 @@ export default function App() {
     const [score, setScore] = useState(0);
     const [highScore, setHighScore] = useState(0);
     const [isGameOver, setIsGameOver] = useState(false);
+    const [isWon, setIsWon] = useState(false);
     const [clickedCards, setClickedCards] = useState(new Set());
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [activeCards, setActiveCards] = useState([]);
@@ -46,7 +47,9 @@ export default function App() {
         }
 
         setClickedCards((previousCards) => new Set(previousCards).add(card.id));
-        setScore((previousScore) => previousScore + 1);
+        const nextScore = score + 1;
+
+        setScore(nextScore);
         setFlippedCardId(card.id);
         setIsShuffling(true);
 
@@ -54,6 +57,12 @@ export default function App() {
             setActiveCards((previousCards) => shuffleCards(previousCards));
             setFlippedCardId(null);
             setIsShuffling(false);
+
+            if (nextScore === DIFFICULTY_COUNTS[selectedDifficulty]) {
+                setHighScore((previousHighScore) => Math.max(previousHighScore, nextScore));
+                setIsWon(true);
+                setIsGameOver(true);
+            }
         }, 500);
     };
 
@@ -62,6 +71,7 @@ export default function App() {
         setSelectedDifficulty(difficulty);
         setScore(0);
         setIsGameOver(false);
+        setIsWon(false);
         setClickedCards(new Set());
         setFlippedCardId(null);
         setIsShuffling(false);
@@ -71,6 +81,7 @@ export default function App() {
         setActiveCards((previousCards) => shuffleCards(previousCards));
         setScore(0);
         setIsGameOver(false);
+        setIsWon(false);
         setClickedCards(new Set());
         setFlippedCardId(null);
         setIsShuffling(false);
@@ -81,6 +92,7 @@ export default function App() {
         setActiveCards([]);
         setScore(0);
         setIsGameOver(false);
+        setIsWon(false);
         setClickedCards(new Set());
         setFlippedCardId(null);
         setIsShuffling(false);
@@ -92,7 +104,7 @@ export default function App() {
         return (
             <main className="flex min-h-screen items-center justify-center px-4">
                 <section className="rounded-2xl border-4 border-black bg-slate-900/80 p-8 text-center text-white shadow-2xl">
-                    <p className="mb-4 text-4xl font-bold">Game Over</p>
+                    <p className="mb-4 text-4xl font-bold">{isWon ? "You Win!" : "Game Over"}</p>
                     <p className="text-xl">Score: {score}</p>
                     <p className="mb-6 text-xl">High Score: {highScore}</p>
                     <div className="flex gap-4">
